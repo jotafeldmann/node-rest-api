@@ -4,9 +4,6 @@ const cookieSession = require("cookie-session");
 require("./passport");
 const jwt = require("jsonwebtoken");
 
-const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize("sqlite::memory:");
-
 const { Albums } = require("./albums/domain");
 
 const app = express();
@@ -130,7 +127,6 @@ app.get("/albums", verifyJWT, async (req, res) => {
 });
 
 const init = async () => {
-  await sequelize.sync({ force: true });
   app.listen(3000, () =>
     console.log(`App listening on http://localhost:${process.env.PORT} 🚀🔥`)
   );
