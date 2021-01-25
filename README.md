@@ -7,6 +7,10 @@
 3. Create an REST endpoint that returns the list of your albums.
 4. Protect the endpoints with an auth middleware which uses the JWT for authentication.
 
+## Requirements
+
+- Node 12.x
+
 ## Run Local Server
 
 - Copy .env.example to .env and fill it
