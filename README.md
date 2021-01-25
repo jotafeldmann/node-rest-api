@@ -10,6 +10,9 @@
 ## Requirements
 
 - Node 12.x
+- [Google console dev credentials](https://console.developers.google.com/)
+- Activate Google+ API
+- Use the Google account for test
 
 ## Run Local Server
 
