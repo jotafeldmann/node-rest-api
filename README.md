@@ -57,9 +57,15 @@ npm install
 npm run dev
 ```
 
+- Run tests
+
+```bash
+npm test
+```
+
 ## TODO
 
-- [ ] Tests
+- [x] Tests
 - [ ] Center HTTP communication
 - [ ] Handle routes inside other domains
 - [ ] Detach views from logic
