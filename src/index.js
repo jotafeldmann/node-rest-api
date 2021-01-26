@@ -33,7 +33,7 @@ const init = async () => {
   const app = express();
   setupApp(app);
   setRoutes(app);
-  app.listen(3000, () =>
+  app.listen(process.env.PORT, () =>
     console.log(`App listening on http://localhost:${process.env.PORT}`)
   );
 };
