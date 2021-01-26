@@ -2,96 +2,39 @@ const express = require("express");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
 require("./passport");
-const jwt = require("jsonwebtoken");
 
-const { getEmailFromRequest } = require("./common/common");
-const { checkUserLoggedIn } = require("./common/auth");
-const { setApi } = require("./albums/api");
+const albums = require("./albums/api");
+const login = require("./login/api");
+const home = require("./home/api");
+const profile = require("./profile/api");
 
-const app = express();
+const setupApp = (app) => {
+  app.use(express.json());
 
-app.use(express.json());
+  app.use(
+    cookieSession({
+      name: "session-name",
+      keys: ["key1", "key2"],
+    })
+  );
 
-//Configure Session Storage
-app.use(
-  cookieSession({
-    name: "session-name",
-    keys: ["key1", "key2"],
-  })
-);
+  app.use(passport.initialize());
+  app.use(passport.session());
+};
 
-//Configure Passport
-app.use(passport.initialize());
-app.use(passport.session());
-
-//Unprotected Routes
-app.get("/", (req, res) => {
-  res.send(`<h1>Home</h1>
-<br>
-<a href="/login">Login</a>
-<br>
-<br>
-<a href="/profile">Profile</a>
-<br><br>
-<a href="/albums">Albums</a>
-<br>
-<br>
-<br>
-<br>
-<br>
-<a href="/logout">Logout</a>
-`);
-});
-
-app.get("/failed", (req, res) => {
-  res.send("<h1>Log in Failed :(</h1>");
-});
-
-// Middleware - Check user is Logged in
-
-//Protected Route.
-app.get("/profile", checkUserLoggedIn, (req, res) => {
-  res.send(`<h1>${req.user.displayName}'s Profile Page</h1>
-<br>
-<b>Email:</b> ${getEmailFromRequest(req)}
-<br>
-<b>JWT:</b> <br> ${req.user.jwt}
-`);
-});
-
-// Auth Routes
-app.get(
-  "/login",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
-
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/failed" }),
-  function (req, res) {
-    req.user.jwt = jwt.sign(
-      {
-        exp: Math.floor(Date.now() / 1000) + 60 * 60,
-        data: req.user,
-      },
-      process.env.JWT_SECRET
-    );
-    res.redirect("/profile");
-  }
-);
-
-//Logout
-app.get("/logout", (req, res) => {
-  req.session = null;
-  req.logout();
-  res.redirect("/");
-});
-
-setApi(app);
+const setRoutes = (app) => {
+  home.setApi(app);
+  profile.setApi(app);
+  login.setApi(app);
+  albums.setApi(app);
+};
 
 const init = async () => {
+  const app = express();
+  setupApp(app);
+  setRoutes(app);
   app.listen(3000, () =>
-    console.log(`App listening on http://localhost:${process.env.PORT} 🚀🔥`)
+    console.log(`App listening on http://localhost:${process.env.PORT}`)
   );
 };
 
