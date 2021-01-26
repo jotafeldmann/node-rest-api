@@ -45,3 +45,21 @@ Header `x-access-token`: JWT
 Logged by browser or Header `x-access-token`: JWT
 
 - Go to http://localhost:3000/logout
+
+## How to dev
+
+- Copy .env.example to .env and fill it
+
+- Run
+
+```bash
+npm install
+npm run dev
+```
+
+## TODO
+
+- [ ] Tests
+- [ ] Center HTTP communication
+- [ ] Handle routes inside other domains
+- [ ] Detach views from logic
