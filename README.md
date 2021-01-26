@@ -74,6 +74,7 @@ npm test:watch
 - [x] Tests foundation
 - [ ] Tests: API
 - [ ] Tests: unity
+- [ ] Database: control initalization on main code
 - [ ] Center HTTP communication
 - [ ] Handle routes inside other domains
 - [ ] Detach views from logic
