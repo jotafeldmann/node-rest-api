@@ -29,13 +29,20 @@ const setRoutes = (app) => {
   albums.setApi(app);
 };
 
-const init = async () => {
+const initApp = () => {
   const app = express();
   setupApp(app);
   setRoutes(app);
+  return app;
+};
+
+if (require.main === module) {
+  const app = initApp();
   app.listen(process.env.PORT, () =>
     console.log(`App listening on http://localhost:${process.env.PORT}`)
   );
-};
+}
 
-init();
+module.exports = {
+  initApp,
+};
