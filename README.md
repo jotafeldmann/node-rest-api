@@ -72,9 +72,18 @@ npm test:watch
 ## TODO
 
 - [x] Tests foundation
-- [ ] Tests: API
-- [ ] Tests: unity
 - [ ] Database: control initalization on main code
-- [ ] Center HTTP communication
+- [ ] Tests: API
+- [ ] Lint
+- [ ] Code formatter
+- [ ] CI: add Github actions for each branch commit
+- [ ] Dockerize app
+- [ ] Database: move to PostgreSQL
+- [ ] Tests: unity
+- [ ] Center HTTP responses and codes
 - [ ] Handle routes inside other domains
-- [ ] Detach views from logic
+- [ ] Detach views (React) from logic
+- [ ] Observability: Sentry
+- [ ] Observability: logs
+- [ ] Observability: APM
+- [ ] Tests: stress
