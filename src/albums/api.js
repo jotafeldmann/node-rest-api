@@ -1,4 +1,4 @@
-const { verifyJWT } = require("./../common/auth");
+const { verifyJWT } = require("./../auth/auth");
 const { getEmailFromRequest } = require("./../common/common");
 const { createAlbum, getAlbums } = require("./controllers");
 

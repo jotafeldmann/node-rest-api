@@ -1,4 +1,4 @@
-const passport = require("passport");
+const { passport } = require("./../auth/passport");
 const jwt = require("jsonwebtoken");
 
 const ONE_HOUR = Math.floor(Date.now() / 1000) + 60 * 60;

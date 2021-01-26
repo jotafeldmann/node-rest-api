@@ -1,5 +1,5 @@
 const { getEmailFromRequest, getJwt } = require("./../common/common");
-const { checkUserLoggedIn } = require("./../common/auth");
+const { checkUserLoggedIn } = require("./../auth/auth");
 
 const setApi = (app) => {
   app.get("/profile", checkUserLoggedIn, (req, res) => {

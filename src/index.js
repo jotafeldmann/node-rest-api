@@ -1,7 +1,6 @@
 const express = require("express");
-const passport = require("passport");
 const cookieSession = require("cookie-session");
-require("./passport");
+const { passport } = require("./auth/passport");
 
 const albums = require("./albums/api");
 const login = require("./login/api");
