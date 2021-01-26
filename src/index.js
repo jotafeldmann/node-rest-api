@@ -57,9 +57,7 @@ function verifyJWT(req, res, next) {
 
   jwt.verify(token, process.env.JWT_SECRET, function (err, decoded) {
     if (err)
-      return res
-        .status(500)
-        .json({ auth: false, message: "Failed to authenticate token." });
+      return res.status(400).json({ auth: false, message: "Invalid token." });
 
     req.user = jwt.decode(token, process.env.JWT_SECRET).data;
     next();
