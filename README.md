@@ -63,9 +63,17 @@ npm run dev
 npm test
 ```
 
+- Run tests and watch reload
+
+```bash
+npm test:watch
+```
+
 ## TODO
 
-- [x] Tests
+- [x] Tests foundation
+- [ ] Tests: API
+- [ ] Tests: unity
 - [ ] Center HTTP communication
 - [ ] Handle routes inside other domains
 - [ ] Detach views from logic

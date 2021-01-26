@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "npx nodemon npm start",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "npm test -- --watchAll"
   },
   "author": "",
   "license": "MIT",
