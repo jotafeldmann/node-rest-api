@@ -1,25 +1,73 @@
-# NODE REST API
+# Node REST API
 
 ## Purpose
-Node Rest basic scaffold.
+
+REST API scaffold for Node.
 
 ## Requirements
 
-- Node 12.x
+- [Node 12.x](https://nodejs.org/en/download/)
 - [Google console dev credentials](https://console.developers.google.com/)
 - Activate Google+ API
 - Use the Google account for test
 
-## Run Local Server
+## API
 
-- Copy .env.example to .env and fill it
+- [Express](https://expressjs.com/)
 
-- Run
+## Setup
+
+Copy the `.env.example` to `.env` (NEVER COMMIT the .env file or sensitive data)
 
 ```bash
-npm install
-npm start
+make env/file
 ```
+
+Local
+
+```bash
+make install
+```
+
+## How to run
+
+Local
+
+```bash
+make
+```
+
+## How to dev
+
+- Install
+
+```bash
+make install/dev
+```
+
+- Run as developer mode (watch and reload)
+
+We use [Nodemon](https://nodemon.io/) for this.
+
+```bash
+make dev
+```
+
+- Run tests (watch and reload)
+
+```bash
+make tests/watch
+```
+
+- Run tests once
+
+```bash
+make tests
+```
+
+Please check the [Makefile](./Makefile) for more options.
+
+## Run Local Server
 
 - Go to http://localhost:3000/login
 
@@ -41,26 +89,3 @@ Header `x-access-token`: JWT
 Logged by browser or Header `x-access-token`: JWT
 
 - Go to http://localhost:3000/logout
-
-## How to dev
-
-- Copy .env.example to .env and fill it
-
-- Run
-
-```bash
-npm install
-npm run dev
-```
-
-- Run tests
-
-```bash
-npm test
-```
-
-- Run tests and watch reload
-
-```bash
-npm test:watch
-```
