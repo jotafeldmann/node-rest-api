@@ -1,11 +1,7 @@
-# API NODE
+# NODE REST API
 
 ## Purpose
-
-1. Setup OAuth endpoints that will handle the Google OAuth flow and create a JWT for your application and further authentication on your REST endpoints.
-2. Create an REST endpoint to add an album to a list stored in a persistent storage of your choice.
-3. Create an REST endpoint that returns the list of your albums.
-4. Protect the endpoints with an auth middleware which uses the JWT for authentication.
+Node Rest basic scaffold.
 
 ## Requirements
 
@@ -68,22 +64,3 @@ npm test
 ```bash
 npm test:watch
 ```
-
-## TODO
-
-- [x] Tests foundation
-- [ ] Database: control initalization on main code
-- [ ] Tests: API
-- [ ] Lint
-- [ ] Code formatter
-- [ ] CI: add Github actions for each branch commit
-- [ ] Dockerize app
-- [ ] Database: move to PostgreSQL
-- [ ] Tests: unity
-- [ ] Center HTTP responses and codes
-- [ ] Handle routes inside other domains
-- [ ] Detach views (React) from logic
-- [ ] Observability: Sentry
-- [ ] Observability: logs
-- [ ] Observability: APM
-- [ ] Tests: stress
